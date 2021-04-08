@@ -21,7 +21,7 @@
                         <li><a href="{{route('contact')}}">Contact</a></li>
                         @if (Route::has('login'))
                             @auth
-                                <li> <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a></li>
+                                <li> <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Backend</a></li>
                             @else
                                 <li><a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a></li>
 

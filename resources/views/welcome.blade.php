@@ -81,7 +81,7 @@
                                     <div class="col-md-6">
                                         @foreach($skillRepository->model()::all() as $key=>$item)
                                             <div class="services animate-box">
-                                                <h3>{{$key.' - '.    $item->name}}</h3>
+                                                <h3>{{($key+1).' - '.    $item->name}}</h3>
                                                 <ul>
                                                     @foreach($skillDetailRepository->model()::all() as $detail)
                                                         @if($detail->skill_id==$item->id)
@@ -123,11 +123,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($doneProjectRepository->model()::all() as $item)
+                    @foreach($doneProjectRepository->model()::all() as $key=> $item)
                         <div class="col-md-12">
                             <div class="work-entry animate-box">
                                 <a href="{{route('work')}}" class="work-img"
-                                   style="background-image: url(images/work-1.jpg);">
+                                   style="background-image: url(images/work-{{$key+1}}.jpg);">
                                     <div class="display-t">
                                         <div class="work-name">
                                             <h2>{{$item->name}}</h2>
