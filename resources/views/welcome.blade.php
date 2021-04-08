@@ -1,5 +1,5 @@
 <?php
-
+//todo: Image upload and social buttons
 ?>
 
 @extends('layouts.frontend.frontend')
