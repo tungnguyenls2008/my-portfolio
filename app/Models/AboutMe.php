@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class About
+ * Class AboutMe
  * @package App\Models
- * @version April 8, 2021, 4:50 am UTC
+ * @version April 8, 2021, 6:02 am UTC
  *
  * @property string $name
  * @property string $description
+ * @property integer $activated
  */
-class About extends Model
+class AboutMe extends Model
 {
     use SoftDeletes;
 
@@ -32,7 +33,8 @@ class About extends Model
 
     public $fillable = [
         'name',
-        'description'
+        'description',
+        'activated'
     ];
 
     /**
@@ -43,7 +45,8 @@ class About extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+        'activated' => 'integer'
     ];
 
     /**
@@ -56,7 +59,8 @@ class About extends Model
         'description' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
-        'deleted_at' => 'nullable'
+        'deleted_at' => 'nullable',
+        'activated' => 'nullable|integer'
     ];
 
     

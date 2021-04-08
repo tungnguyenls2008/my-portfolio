@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\About;
+use App\Models\AboutMe;
 
-class UpdateAboutRequest extends FormRequest
+class UpdateAboutMeRequest extends FormRequest
 {
 
     /**
@@ -25,7 +25,7 @@ class UpdateAboutRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = About::$rules;
+        $rules = AboutMe::$rules;
         
         return $rules;
     }

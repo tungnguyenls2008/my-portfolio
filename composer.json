@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "infyomlabs/coreui-templates": "8.0.x-dev",
         "infyomlabs/laravel-generator": "8.0.x-dev",
+        "infyomlabs/generator-builder": "dev-master",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "laravel/ui": "3.0",

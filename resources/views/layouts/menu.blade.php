@@ -1,9 +1,4 @@
-<li class="nav-item {{ Request::is('abouts*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('abouts.index') }}">
-        <i class="nav-icon icon-cursor"></i>
-        <span>Abouts</span>
-    </a>
-</li>
+
 <li class="nav-item {{ Request::is('stories*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('stories.index') }}">
         <i class="nav-icon icon-cursor"></i>
@@ -50,5 +45,11 @@
     <a class="nav-link" href="{{ route('welcome') }}">
         <i class="nav-icon icon-cursor"></i>
         <span>Back to Frontend</span>
+    </a>
+</li>
+<li class="nav-item {{ Request::is('aboutMes*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('aboutMes.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>About Mes</span>
     </a>
 </li>

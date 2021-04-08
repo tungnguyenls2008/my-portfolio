@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\About;
+use App\Models\AboutMe;
 
-class CreateAboutRequest extends FormRequest
+class CreateAboutMeRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateAboutRequest extends FormRequest
      */
     public function rules()
     {
-        return About::$rules;
+        return AboutMe::$rules;
     }
 }
