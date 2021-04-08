@@ -37,7 +37,7 @@ class WelcomeController extends AppBaseController
      */
     public function __construct(AboutMeV2Repository $aboutMeV2Repository, BlogRepository $blogRepository, DoneProjectRepository $doneProjectRepository, GoalRepository $goalRepository, SkillRepository $skillRepository, SkillDetailRepository $skillDetailRepository, StoryRepository $storyRepository, TestimonyRepository $testimonyRepository)
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
         $this->aboutMeV2Repository = $aboutMeV2Repository;
         $this->blogRepository = $blogRepository;
         $this->doneProjectRepository = $doneProjectRepository;
