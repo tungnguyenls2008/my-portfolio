@@ -40,3 +40,20 @@ Route::get('work-single',function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('abouts', App\Http\Controllers\AboutController::class);
+
+Route::resource('stories', App\Http\Controllers\StoryController::class);
+
+Route::resource('goals', App\Http\Controllers\GoalController::class);
+
+Route::resource('testimonies', App\Http\Controllers\TestimonyController::class);
+
+Route::resource('skills', App\Http\Controllers\SkillController::class);
+
+Route::resource('skillDetails', App\Http\Controllers\SkillDetailController::class);
+
+Route::resource('doneProjects', App\Http\Controllers\DoneProjectController::class);
+
+Route::resource('blogs', App\Http\Controllers\BlogController::class);

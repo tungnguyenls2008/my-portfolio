@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-<header class="app-header navbar">
+<header class="app-header navbar" style="background: #2f353a">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="http://infyom.com/images/logo/blue_logo_150x150.jpg" width="30" height="30"
-             alt="InfyOm Logo">
-        <img class="navbar-brand-minimized" src="http://infyom.com/images/logo/blue_logo_150x150.jpg" width="30"
+        <img class="navbar-brand-full" src="{{asset('backend_assets/image/logo.gif')}}" width="30" height="30"
+             alt="InfyOm Logo">My Portfolio
+        <img class="navbar-brand-minimized" src="{{asset('backend_assets/image/logo.gif')}}" width="30"
              height="30" alt="InfyOm Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
