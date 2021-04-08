@@ -2,22 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\AboutMe;
+use App\Models\AboutMeV2;
 use App\Repositories\BaseRepository;
 
 /**
- * Class AboutMeRepository
+ * Class AboutMeV2Repository
  * @package App\Repositories
- * @version April 8, 2021, 6:02 am UTC
+ * @version April 8, 2021, 7:07 am UTC
 */
 
-class AboutMeRepository extends BaseRepository
+class AboutMeV2Repository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name',
+        'first_name',
+        'last_name',
         'description',
         'activated'
     ];
@@ -37,6 +38,6 @@ class AboutMeRepository extends BaseRepository
      **/
     public function model()
     {
-        return AboutMe::class;
+        return AboutMeV2::class;
     }
 }

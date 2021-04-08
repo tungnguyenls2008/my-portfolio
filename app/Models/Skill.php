@@ -20,7 +20,7 @@ class Skill extends Model
     use HasFactory;
 
     public $table = 'skills';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -54,6 +54,9 @@ class Skill extends Model
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
+    public function skillDetail()
+    {
+        return $this->hasMany(SkillDetail::class);
+    }
 
-    
 }

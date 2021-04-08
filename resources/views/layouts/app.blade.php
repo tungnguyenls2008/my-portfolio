@@ -36,6 +36,11 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+        <a  style="margin-right: 10px" href="{{ route('welcome') }}">
+            <span>Back to Frontend</span>
+        </a>
+
+
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item d-md-down-none">
             <a class="nav-link" href="#">

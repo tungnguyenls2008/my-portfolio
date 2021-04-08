@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 Route::get('about',function (){
     return view('about');
 })->name('about');
@@ -58,7 +56,7 @@ Route::resource('doneProjects', App\Http\Controllers\DoneProjectController::clas
 
 Route::resource('blogs', App\Http\Controllers\BlogController::class);
 
-Route::resource('aboutMes', App\Http\Controllers\AboutMeController::class);
+
 
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')->name('io_generator_builder');
 
@@ -74,3 +72,5 @@ Route::post(
     'generator_builder/generate-from-file',
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 )->name('io_generator_builder_generate_from_file');
+
+Route::resource('aboutMeV2s', App\Http\Controllers\AboutMeV2Controller::class);

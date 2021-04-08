@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
           <li class="breadcrumb-item">
-             <a href="{!! route('aboutMes.index') !!}">About Me</a>
+             <a href="{!! route('aboutMeV2s.index') !!}">About Me V2</a>
           </li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
@@ -15,12 +15,12 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit About Me</strong>
+                              <strong>Edit About Me V2</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($aboutMe, ['route' => ['aboutMes.update', $aboutMe->id], 'method' => 'patch']) !!}
+                              {!! Form::model($aboutMeV2, ['route' => ['aboutMeV2s.update', $aboutMeV2->id], 'method' => 'patch']) !!}
 
-                              @include('about_mes.fields')
+                              @include('about_me_v2s.fields')
 
                               {!! Form::close() !!}
                             </div>
