@@ -18,7 +18,7 @@
                                 <strong>Create Blog</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'blogs.store']) !!}
+                                {!! Form::open(['route' => 'blogs.store','enctype'=>'multipart/form-data']) !!}
 
                                    @include('blogs.fields')
 

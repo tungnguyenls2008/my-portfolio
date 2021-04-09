@@ -6,6 +6,7 @@ use App\Http\Requests\CreateBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Repositories\BlogRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\UploadRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -14,10 +15,12 @@ class BlogController extends AppBaseController
 {
     /** @var  BlogRepository */
     private $blogRepository;
+    private $uploadRepository;
 
-    public function __construct(BlogRepository $blogRepo)
+    public function __construct(BlogRepository $blogRepo,UploadRepository $uploadRepository)
     {
         $this->blogRepository = $blogRepo;
+        $this->uploadRepository = $uploadRepository;
     }
 
     /**
@@ -25,14 +28,15 @@ class BlogController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function index(Request $request)
     {
         $blogs = $this->blogRepository->all();
+        $uploads=$this->uploadRepository->model()::where('belongs_to_table','blogs')->get();
 
         return view('blogs.index')
-            ->with('blogs', $blogs);
+            ->with('blogs', $blogs)->with('uploads',$uploads);
     }
 
     /**
@@ -57,6 +61,7 @@ class BlogController extends AppBaseController
         $input = $request->all();
 
         $blog = $this->blogRepository->create($input);
+        $this->uploadRepository->doUpload($request,$blog,'blog','blogs');
 
         Flash::success('Blog saved successfully.');
 
@@ -122,6 +127,7 @@ class BlogController extends AppBaseController
         }
 
         $blog = $this->blogRepository->update($request->all(), $id);
+        $this->uploadRepository->doUpload($request,$blog,'blog_','blogs');
 
         Flash::success('Blog updated successfully.');
 

@@ -13,12 +13,12 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              Uploads
-                             <a class="pull-right" href="{{ route('uploads.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+{{--                             <a class="pull-right" href="{{ route('uploads.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>--}}
                          </div>
                          <div class="card-body">
                              @include('uploads.table')
                               <div class="pull-right mr-3">
-                                     
+
                               </div>
                          </div>
                      </div>

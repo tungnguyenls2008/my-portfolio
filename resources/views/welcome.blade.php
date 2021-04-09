@@ -177,8 +177,13 @@
                             <div class="col-md-12">
                                 <div class="article">
                                     <a href="{{route('blog')}}" class="blog-img">
-                                        <img class="img-responsive" src="images/img-{{$key+1}}.jpg"
-                                             alt="html5 bootstrap by colorlib.com">
+                                        <?php
+                                        $image_blog=$uploadRepository->model()::where('belongs_to_table','blogs')->where('belongs_to_id',$item->id)->get()->toArray();
+                                        ?>
+
+                                        <img class="img-responsive" src="{{asset($image_blog[0]['uri'])}}"
+                                             alt="">
+
                                         <div class="overlay"></div>
                                         <div class="link">
 											<span class="read">Read more</h2>

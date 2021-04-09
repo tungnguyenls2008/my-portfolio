@@ -65,7 +65,7 @@ class AboutMeV2Controller extends AppBaseController
         }
 
         $aboutMeV2 = $this->aboutMeV2Repository->create($input);
-        $this->uploadRepository->doUpload($request,$aboutMeV2,'about_me_','about');
+        $this->uploadRepository->doUpload($request,$aboutMeV2,'about_me','about');
 
 
         Flash::success('About Me V2 saved successfully.');
