@@ -1,9 +1,14 @@
+<?php
+?>
+
 <div class="table-responsive-sm">
     <table class="table table-striped" id="aboutMeV2s-table">
         <thead>
             <tr>
                 <th>First Name</th>
         <th>Last Name</th>
+        <th>Images</th>
+        <th>Occupation</th>
         <th>Description</th>
         <th>Activated</th>
                 <th colspan="3">Action</th>
@@ -14,6 +19,12 @@
             <tr>
                 <td>{{ $aboutMeV2->first_name }}</td>
             <td>{{ $aboutMeV2->last_name }}</td>
+            <td>@foreach($uploads->where('belongs_to_id',$aboutMeV2->id) as $key=> $upload)
+
+                <img src="{{asset($upload->uri)}}" style="width: 50px">
+                @endforeach
+            </td>
+            <td>{{ $aboutMeV2->occupation }}</td>
             <td>{{ $aboutMeV2->description }}</td>
             <td>{{ $aboutMeV2->activated }}</td>
                 <td>

@@ -10,6 +10,7 @@ use App\Repositories\SkillDetailRepository;
 use App\Repositories\SkillRepository;
 use App\Repositories\StoryRepository;
 use App\Repositories\TestimonyRepository;
+use App\Repositories\UploadRepository;
 use Illuminate\Http\Request;
 
 class WelcomeController extends AppBaseController
@@ -22,6 +23,7 @@ class WelcomeController extends AppBaseController
     private $skillDetailRepository;
     private $storyRepository;
     private $testimonyRepository;
+    private $uploadRepository;
 
     /**
      * Create a new controller instance.
@@ -34,8 +36,9 @@ class WelcomeController extends AppBaseController
      * @param SkillDetailRepository $skillDetailRepository
      * @param StoryRepository $storyRepository
      * @param TestimonyRepository $testimonyRepository
+     * @param UploadRepository $uploadRepository
      */
-    public function __construct(AboutMeV2Repository $aboutMeV2Repository, BlogRepository $blogRepository, DoneProjectRepository $doneProjectRepository, GoalRepository $goalRepository, SkillRepository $skillRepository, SkillDetailRepository $skillDetailRepository, StoryRepository $storyRepository, TestimonyRepository $testimonyRepository)
+    public function __construct(AboutMeV2Repository $aboutMeV2Repository, BlogRepository $blogRepository, DoneProjectRepository $doneProjectRepository, GoalRepository $goalRepository, SkillRepository $skillRepository, SkillDetailRepository $skillDetailRepository, StoryRepository $storyRepository, TestimonyRepository $testimonyRepository, UploadRepository $uploadRepository)
     {
         //$this->middleware('auth');
         $this->aboutMeV2Repository = $aboutMeV2Repository;
@@ -46,6 +49,7 @@ class WelcomeController extends AppBaseController
         $this->skillDetailRepository = $skillDetailRepository;
         $this->storyRepository = $storyRepository;
         $this->testimonyRepository = $testimonyRepository;
+        $this->uploadRepository = $uploadRepository;
     }
 
     /**
@@ -63,7 +67,8 @@ class WelcomeController extends AppBaseController
             'skillRepository' => $this->skillRepository,
             'skillDetailRepository' => $this->skillDetailRepository,
             'storyRepository' => $this->storyRepository,
-            'testimonyRepository' => $this->testimonyRepository
+            'testimonyRepository' => $this->testimonyRepository,
+            'uploadRepository' => $this->uploadRepository,
         ]);
     }
 }

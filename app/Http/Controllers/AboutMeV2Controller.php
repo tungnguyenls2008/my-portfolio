@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAboutMeV2Request;
 use App\Http\Requests\UpdateAboutMeV2Request;
+use App\Models\Upload;
 use App\Repositories\AboutMeV2Repository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\UploadRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -14,10 +16,12 @@ class AboutMeV2Controller extends AppBaseController
 {
     /** @var  AboutMeV2Repository */
     private $aboutMeV2Repository;
+    private $uploadRepository;
 
-    public function __construct(AboutMeV2Repository $aboutMeV2Repo)
+    public function __construct(AboutMeV2Repository $aboutMeV2Repo, UploadRepository $uploadRepository)
     {
         $this->aboutMeV2Repository = $aboutMeV2Repo;
+        $this->uploadRepository = $uploadRepository;
     }
 
     /**
@@ -25,14 +29,15 @@ class AboutMeV2Controller extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function index(Request $request)
     {
         $aboutMeV2s = $this->aboutMeV2Repository->all();
+        $uploads=$this->uploadRepository->model()::where('belongs_to_table','about')->get();
 
         return view('about_me_v2s.index')
-            ->with('aboutMeV2s', $aboutMeV2s);
+            ->with('aboutMeV2s', $aboutMeV2s)->with('uploads',$uploads);
     }
 
     /**
@@ -58,7 +63,28 @@ class AboutMeV2Controller extends AppBaseController
         if ($input['activated']==1){
             $this->updateActivationState();
         }
+
         $aboutMeV2 = $this->aboutMeV2Repository->create($input);
+        if ($request->hasfile('images')) {
+            $request->validate([
+                'images' => 'required',
+            ]);
+            $images = $request->file('images');
+
+            foreach($images as $key=> $image) {
+
+                $name = 'about_me_'.($key+1).'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+                $path = $image->storeAs('uploads/images', $name, 'public');
+
+                Upload::create([
+                    'name' => $name,
+                    'uri' => '/storage/'.$path,
+                    'belongs_to_table'=>'about',
+                    'belongs_to_id'=>$aboutMeV2->id,
+                ]);
+            }
+
+        }
 
         Flash::success('About Me V2 saved successfully.');
 

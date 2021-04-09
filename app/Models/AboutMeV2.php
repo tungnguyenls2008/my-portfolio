@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @property string $first_name
  * @property string $last_name
+ * @property string $occupation
  * @property string $description
  * @property integer $activated
  */
@@ -23,7 +24,7 @@ class AboutMeV2 extends Model
     use HasFactory;
 
     public $table = 'about';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -35,6 +36,7 @@ class AboutMeV2 extends Model
     public $fillable = [
         'first_name',
         'last_name',
+        'occupation',
         'description',
         'activated'
     ];
@@ -48,6 +50,7 @@ class AboutMeV2 extends Model
         'id' => 'integer',
         'first_name' => 'string',
         'last_name' => 'string',
+        'occupation' => 'string',
         'description' => 'string',
         'activated' => 'integer'
     ];
@@ -60,6 +63,7 @@ class AboutMeV2 extends Model
     public static $rules = [
         'first_name' => 'required|string',
         'last_name' => 'nullable|string',
+        'occupation' => 'required|string',
         'description' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
@@ -67,5 +71,5 @@ class AboutMeV2 extends Model
         'activated' => 'nullable|integer'
     ];
 
-    
+
 }

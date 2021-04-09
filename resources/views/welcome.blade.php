@@ -17,14 +17,16 @@
                 <div class="row">
                     <div class="col-md-5 animate-box">
                         <div class="owl-carousel3">
+                            <?php
+                            $activated=$aboutMeV2Repository->model()::where('activated',1)->get()->toArray();
+                            $image_about=$uploadRepository->model()::where('belongs_to_id',$activated[0]['id'])->get()->toArray();
+                            ?>
+                            @foreach($image_about as $item)
                             <div class="item">
-                                <img class="img-responsive about-img" src="images/about.jpg"
+                                <img class="img-responsive about-img" src="{{asset($item['uri'])}}"
                                      alt="html5 bootstrap template by colorlib.com">
                             </div>
-                            <div class="item">
-                                <img class="img-responsive about-img" src="images/about-2.jpg"
-                                     alt="html5 bootstrap template by colorlib.com">
-                            </div>
+                                @endforeach
                         </div>
                     </div>
                     <div class="col-md-6 col-md-push-1 animate-box">
@@ -36,7 +38,7 @@
                                     </h2>
                                 </div>
                                 <div class="item">
-                                    <h2><span>I'm</span><span>A Designer</span></h2>
+                                    <h2><span>I'm</span><span>A {{$aboutMeV2Repository->model()::where('activated',1)->value('occupation')}}</span></h2>
                                 </div>
                             </div>
                             <div class="desc">

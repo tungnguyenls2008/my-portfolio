@@ -2,26 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\AboutMeV2;
+use App\Models\Upload;
 use App\Repositories\BaseRepository;
 
 /**
- * Class AboutMeV2Repository
+ * Class UploadRepository
  * @package App\Repositories
- * @version April 8, 2021, 7:07 am UTC
+ * @version April 9, 2021, 2:11 am UTC
 */
 
-class AboutMeV2Repository extends BaseRepository
+class UploadRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'first_name',
-        'last_name',
-        'occupation',
-        'description',
-        'activated'
+        'name',
+        'uri',
+        'type',
+        'belongs_to'
     ];
 
     /**
@@ -39,6 +38,6 @@ class AboutMeV2Repository extends BaseRepository
      **/
     public function model()
     {
-        return AboutMeV2::class;
+        return Upload::class;
     }
 }

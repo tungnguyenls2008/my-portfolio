@@ -74,3 +74,8 @@ Route::post(
 )->name('io_generator_builder_generate_from_file');
 
 Route::resource('aboutMeV2s', App\Http\Controllers\AboutMeV2Controller::class);
+
+
+
+
+Route::resource('uploads', App\Http\Controllers\UploadController::class);

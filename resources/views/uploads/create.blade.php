@@ -3,7 +3,7 @@
 @section('content')
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-         <a href="{!! route('aboutMeV2s.index') !!}">About Me V2</a>
+         <a href="{!! route('uploads.index') !!}">Upload</a>
       </li>
       <li class="breadcrumb-item active">Create</li>
     </ol>
@@ -15,12 +15,12 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fa fa-plus-square-o fa-lg"></i>
-                                <strong>Create About Me V2</strong>
+                                <strong>Create Upload</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'aboutMeV2s.store','enctype'=>'multipart/form-data']) !!}
+                                {!! Form::open(['route' => 'uploads.store']) !!}
 
-                                   @include('about_me_v2s.fields')
+                                   @include('uploads.fields')
 
                                 {!! Form::close() !!}
                             </div>

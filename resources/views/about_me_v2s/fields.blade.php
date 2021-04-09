@@ -9,7 +9,17 @@
     {!! Form::label('last_name', 'Last Name:') !!}
     {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
 </div>
+<!-- Photo upload Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('images', 'Images:') !!}
+    <input type="file" name="images[]" id="images" multiple class="form-control" accept="image/*">
+</div>
 
+<!-- Occupation Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('occupation', 'Occupation:') !!}
+    {!! Form::text('occupation', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Description Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('description', 'Description:') !!}
