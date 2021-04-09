@@ -79,3 +79,5 @@ Route::resource('aboutMeV2s', App\Http\Controllers\AboutMeV2Controller::class);
 
 
 Route::resource('uploads', App\Http\Controllers\UploadController::class);
+
+Route::resource('uploadDatatables', App\Http\Controllers\UploadDatatableController::class);

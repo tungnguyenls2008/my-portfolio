@@ -55,3 +55,9 @@
         <span>Uploads</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('uploadDatatables*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('uploadDatatables.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Upload Datatables</span>
+    </a>
+</li>

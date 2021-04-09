@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateDoneProjectRequest;
 use App\Models\Upload;
 use App\Repositories\DoneProjectRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\UploadDatatableRepository;
 use App\Repositories\UploadRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -20,11 +21,13 @@ class DoneProjectController extends AppBaseController
     /** @var  DoneProjectRepository */
     private $doneProjectRepository;
     private $uploadRepository;
+    private $uploadDatatableRepository;
 
-    public function __construct(DoneProjectRepository $doneProjectRepo, UploadRepository $uploadRepository)
+    public function __construct(DoneProjectRepository $doneProjectRepo, UploadRepository $uploadRepository,UploadDatatableRepository $uploadDatatableRepository)
     {
         $this->doneProjectRepository = $doneProjectRepo;
         $this->uploadRepository = $uploadRepository;
+        $this->uploadDatatableRepository = $uploadDatatableRepository;
     }
 
     /**
@@ -66,6 +69,7 @@ class DoneProjectController extends AppBaseController
 
         $doneProject = $this->doneProjectRepository->create($input);
         $this->uploadRepository->doUpload($request,$doneProject,'done_project','done_projects');
+        $this->uploadDatatableRepository->doUpload($request,$doneProject,'done_project','done_projects');
 
         Flash::success('Done Project saved successfully.');
 
