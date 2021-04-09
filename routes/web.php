@@ -14,27 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
-Route::get('about',function (){
-    return view('about');
-})->name('about');
-Route::get('blog',function (){
-    return view('blog');
-})->name('blog');
-Route::get('contact',function (){
-    return view('contact');
-})->name('contact');
-Route::get('services',function (){
-    return view('services');
-})->name('services');
-Route::get('single',function (){
-    return view('single');
-})->name('single');
-Route::get('work',function (){
-    return view('work');
-})->name('work');
-Route::get('work-single',function (){
-    return view('work-single');
-})->name('work-single');
+Route::get('about', [App\Http\Controllers\AboutFEController::class, 'index'])->name('about');
+Route::get('blog', [App\Http\Controllers\BlogFEController::class, 'index'])->name('blog');
+Route::get('contact', [App\Http\Controllers\ContactFEController::class, 'index'])->name('contact');
+Route::get('services', [App\Http\Controllers\ServiceFEController::class, 'index'])->name('services');
+Route::get('single', [App\Http\Controllers\SingleFEController::class, 'index'])->name('single');
+Route::get('work', [App\Http\Controllers\TestimonyFEController::class, 'index'])->name('work');
+Route::get('work-single', [App\Http\Controllers\WorkSingleFEController::class, 'index'])->name('work-single');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

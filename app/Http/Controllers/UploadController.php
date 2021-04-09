@@ -29,7 +29,7 @@ class UploadController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $uploads = $this->uploadRepository->all();
+        $uploads = $this->uploadRepository->paginate(15);
 
         return view('uploads.index')
             ->with('uploads', $uploads);

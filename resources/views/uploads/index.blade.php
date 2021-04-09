@@ -17,9 +17,11 @@
                          </div>
                          <div class="card-body">
                              @include('uploads.table')
-                              <div class="pull-right mr-3">
+                              <div class="pull-right mr-1">
+                                  {{ $uploads->links() }}
 
                               </div>
+
                          </div>
                      </div>
                   </div>
