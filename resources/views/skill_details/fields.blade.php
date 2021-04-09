@@ -1,9 +1,14 @@
-<!-- Skill Id Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('skill_id', 'Skill Id:') !!}
-    {!! Form::number('skill_id', null, ['class' => 'form-control']) !!}
-</div>
 
+<!-- Skill Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('skill_id', 'Skill:') !!}
+    <select class="form-control" id="skill_id" name="skill_id">
+        <option disabled selected value="">Choose a skill set</option>
+        @foreach($skillRepository->model()::all() as $skill)
+            <option value="{{$skill->id}}">{{$skill->name}}</option>
+        @endforeach
+    </select>
+</div>
 <!-- Detail Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('detail', 'Detail:') !!}
