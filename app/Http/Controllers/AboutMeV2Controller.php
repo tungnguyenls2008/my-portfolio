@@ -73,7 +73,7 @@ class AboutMeV2Controller extends AppBaseController
 
             foreach($images as $key=> $image) {
 
-                $name = 'about_me_'.($key+1).'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+                $name = 'about_me_'.$aboutMeV2->id.'_0'.$key.'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
                 $path = $image->storeAs('uploads/images', $name, 'public');
 
                 Upload::create([
@@ -151,6 +151,27 @@ class AboutMeV2Controller extends AppBaseController
         if ($request->all()['activated']==1){
             $this->updateActivationState();
         }
+        if ($request->hasfile('images')) {
+            $request->validate([
+                'images' => 'required',
+            ]);
+            $images = $request->file('images');
+
+            foreach($images as $key=> $image) {
+
+                $name = 'about_me_'.$aboutMeV2->id.'_0'.$key.'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+                $path = $image->storeAs('uploads/images', $name, 'public');
+
+                Upload::update(['belongs_to_id'=>$aboutMeV2->id],[
+                    'name' => $name,
+                    'uri' => '/storage/'.$path,
+                    'belongs_to_table'=>'about',
+                    'belongs_to_id'=>$aboutMeV2->id,
+                ]);
+            }
+
+        }
+
         $aboutMeV2 = $this->aboutMeV2Repository->update($request->all(), $id);
 
         Flash::success('About Me V2 updated successfully.');
@@ -176,7 +197,12 @@ class AboutMeV2Controller extends AppBaseController
 
             return redirect(route('aboutMeV2s.index'));
         }
+        $images_to_delete=$this->uploadRepository->model()::where('belongs_to_id',$id)->get();
+        foreach ($images_to_delete as $item){
+            unlink(trim($item['uri'],'/'));
+        }
 
+        $this->uploadRepository->model()::where('belongs_to_id',$id)->delete('belongs_to_id',$id);
         $this->aboutMeV2Repository->delete($id);
 
         Flash::success('About Me V2 deleted successfully.');
