@@ -19,7 +19,7 @@ Route::get('blog', [App\Http\Controllers\BlogFEController::class, 'index'])->nam
 Route::get('contact', [App\Http\Controllers\ContactFEController::class, 'index'])->name('contact');
 Route::get('services', [App\Http\Controllers\ServiceFEController::class, 'index'])->name('services');
 Route::get('single', [App\Http\Controllers\SingleFEController::class, 'index'])->name('single');
-Route::get('work', [App\Http\Controllers\TestimonyFEController::class, 'index'])->name('work');
+Route::get('work', [App\Http\Controllers\WorkFEController::class, 'index'])->name('work');
 Route::get('work-single', [App\Http\Controllers\WorkSingleFEController::class, 'index'])->name('work-single');
 
 Auth::routes();

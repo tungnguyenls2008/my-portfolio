@@ -1,159 +1,51 @@
 @extends('layouts.frontend.frontend')
 	@section('content')
 	<div id="colorlib-page">
-		<header>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="colorlib-navbar-brand">
-							<a class="colorlib-logo" href="index.html"><span>No</span><span>ah</span></a>
-						</div>
-						<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-					</div>
-				</div>
-			</div>
-		</header>
-		<div id="colorlib-work">
-			<div class="container">
-				<div class="row text-center">
-					<h2 class="bold">Works</h2>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
-						<span>Portfolio</span>
-						<h2>Done Projects</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="rotate">
-							<h2 class="heading">Portfolio</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-1.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Pursuing Best</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-2.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Coordinates</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View Details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-3.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Cristall</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-4.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Black</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-5.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Black</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-6.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Black</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="work-entry animate-box">
-							<a href="work-single.html" class="work-img" style="background-image: url(images/work-7.jpg);">
-								<div class="display-t">
-									<div class="work-name">
-										<h2>Indice</h2>
-									</div>
-								</div>
-							</a>
-							<div class="col-md-4 col-md-offset-4">
-								<div class="desc">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p class="read"><a href="#">View details</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div id="colorlib-work">
+            <div class="container">
+                <div class="row text-center">
+                    <h2 class="bold">Works</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
+                        <span>Portfolio</span>
+                        <h2>Done Projects</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="rotate">
+                            <h2 class="heading">Portfolio</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($doneProjectRepository->model()::all() as $key=> $item)
+                        <div class="col-md-12">
+                            <div class="work-entry animate-box">
+                                <?php
+                                $img_project=$uploadRepository->model()::where('belongs_to_table','done_projects')->where('belongs_to_id',$item->id)->get()->toArray();
+                                ?>
+                                <a href="{{route('work')}}" class="work-img"
+                                   style="background-image: url({{asset($img_project[0]['uri'])}});">
+                                    <div class="display-t">
+                                        <div class="work-name">
+                                            <h2>{{$item->name}}</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="col-md-4 col-md-offset-4">
+                                    <div class="desc">
+                                        <p>{{$item->short_desc}}</p>
+                                        <p class="read"><a href="#">View details</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
 
 		<footer>
 			<div id="footer">
