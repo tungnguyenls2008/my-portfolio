@@ -80,13 +80,15 @@
                                             <h2 class="heading">Services</h2>
                                         </div>
                                     </div>
+                                    @foreach(array_chunk($skillRepository->model()::all()->toArray(),2) as $set)
+
                                     <div class="col-md-6">
-                                        @foreach($skillRepository->model()::all() as $key=>$item)
+                                        @foreach($set as $item)
                                             <div class="services animate-box">
-                                                <h3>{{($key+1).' - '.    $item->name}}</h3>
+                                                <h3>{{' - '.    $item['name']}}</h3>
                                                 <ul>
                                                     @foreach($skillDetailRepository->model()::all() as $detail)
-                                                        @if($detail->skill_id==$item->id)
+                                                        @if($detail->skill_id==$item['id'])
                                                             <li>{{$detail->detail}}</li>
                                                         @endif
                                                     @endforeach
@@ -94,6 +96,7 @@
                                             </div>
                                         @endforeach
                                     </div>
+                                    @endforeach
 
                                 </div>
                             </div>
