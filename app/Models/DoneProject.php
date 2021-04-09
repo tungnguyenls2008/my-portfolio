@@ -23,7 +23,7 @@ class DoneProject extends Model
     use HasFactory;
 
     public $table = 'done_projects';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -59,7 +59,7 @@ class DoneProject extends Model
      */
     public static $rules = [
         'name' => 'required|string',
-        'image' => 'required|string',
+        'image' => 'string',
         'short_desc' => 'required|string',
         'long_desc' => 'required|string',
         'created_at' => 'nullable',
@@ -67,5 +67,5 @@ class DoneProject extends Model
         'deleted_at' => 'nullable'
     ];
 
-    
+
 }

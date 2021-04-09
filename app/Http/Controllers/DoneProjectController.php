@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDoneProjectRequest;
 use App\Http\Requests\UpdateDoneProjectRequest;
+use App\Models\Upload;
 use App\Repositories\DoneProjectRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\UploadRepository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -14,10 +19,12 @@ class DoneProjectController extends AppBaseController
 {
     /** @var  DoneProjectRepository */
     private $doneProjectRepository;
+    private $uploadRepository;
 
-    public function __construct(DoneProjectRepository $doneProjectRepo)
+    public function __construct(DoneProjectRepository $doneProjectRepo, UploadRepository $uploadRepository)
     {
         $this->doneProjectRepository = $doneProjectRepo;
+        $this->uploadRepository = $uploadRepository;
     }
 
     /**
@@ -25,14 +32,15 @@ class DoneProjectController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return Application|Factory|View|Response
      */
     public function index(Request $request)
     {
         $doneProjects = $this->doneProjectRepository->all();
+        $uploads=$this->uploadRepository->model()::where('belongs_to_table','done_projects')->get();
 
         return view('done_projects.index')
-            ->with('doneProjects', $doneProjects);
+            ->with('doneProjects', $doneProjects)->with('uploads',$uploads);
     }
 
     /**
@@ -57,6 +65,7 @@ class DoneProjectController extends AppBaseController
         $input = $request->all();
 
         $doneProject = $this->doneProjectRepository->create($input);
+        $this->uploadRepository->doUpload($request,$doneProject,'done_project','done_projects');
 
         Flash::success('Done Project saved successfully.');
 
@@ -114,6 +123,26 @@ class DoneProjectController extends AppBaseController
     public function update($id, UpdateDoneProjectRequest $request)
     {
         $doneProject = $this->doneProjectRepository->find($id);
+        if ($request->hasfile('images')) {
+            $request->validate([
+                'images' => 'required',
+            ]);
+            $images = $request->file('images');
+
+            foreach($images as $key=> $image) {
+
+                $name = 'done_project_'.$doneProject->id.'_0'.$key.'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
+                $path = $image->storeAs('uploads/images', $name, 'public');
+
+                Upload::create([
+                    'name' => $name,
+                    'uri' => '/storage/'.$path,
+                    'belongs_to_table'=>'done_projects',
+                    'belongs_to_id'=>$doneProject->id,
+                ]);
+            }
+
+        }
 
         if (empty($doneProject)) {
             Flash::error('Done Project not found');

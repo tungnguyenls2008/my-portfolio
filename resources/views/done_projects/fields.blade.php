@@ -4,10 +4,10 @@
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Image Field -->
+<!-- Photo upload Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('image', 'Image:') !!}
-    {!! Form::text('image', null, ['class' => 'form-control']) !!}
+    {!! Form::label('images', 'Images:') !!}
+    <input type="file" name="images[]" id="images" multiple class="form-control" accept="image/*">
 </div>
 
 <!-- Short Desc Field -->

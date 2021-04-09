@@ -18,7 +18,7 @@
                                 <strong>Create Done Project</strong>
                             </div>
                             <div class="card-body">
-                                {!! Form::open(['route' => 'doneProjects.store']) !!}
+                                {!! Form::open(['route' => 'doneProjects.store','enctype'=>'multipart/form-data']) !!}
 
                                    @include('done_projects.fields')
 

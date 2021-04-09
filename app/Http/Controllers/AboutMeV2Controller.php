@@ -65,26 +65,8 @@ class AboutMeV2Controller extends AppBaseController
         }
 
         $aboutMeV2 = $this->aboutMeV2Repository->create($input);
-        if ($request->hasfile('images')) {
-            $request->validate([
-                'images' => 'required',
-            ]);
-            $images = $request->file('images');
+        $this->uploadRepository->doUpload($request,$aboutMeV2,'about_me_','about');
 
-            foreach($images as $key=> $image) {
-
-                $name = 'about_me_'.$aboutMeV2->id.'_0'.$key.'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-                $path = $image->storeAs('uploads/images', $name, 'public');
-
-                Upload::create([
-                    'name' => $name,
-                    'uri' => '/storage/'.$path,
-                    'belongs_to_table'=>'about',
-                    'belongs_to_id'=>$aboutMeV2->id,
-                ]);
-            }
-
-        }
 
         Flash::success('About Me V2 saved successfully.');
 
@@ -151,26 +133,9 @@ class AboutMeV2Controller extends AppBaseController
         if ($request->all()['activated']==1){
             $this->updateActivationState();
         }
-        if ($request->hasfile('images')) {
-            $request->validate([
-                'images' => 'required',
-            ]);
-            $images = $request->file('images');
+        $this->uploadRepository->doUpload($request,$aboutMeV2,'about_me_','about');
 
-            foreach($images as $key=> $image) {
 
-                $name = 'about_me_'.$aboutMeV2->id.'_0'.$key.'.'.pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);
-                $path = $image->storeAs('uploads/images', $name, 'public');
-
-                Upload::update(['belongs_to_id'=>$aboutMeV2->id],[
-                    'name' => $name,
-                    'uri' => '/storage/'.$path,
-                    'belongs_to_table'=>'about',
-                    'belongs_to_id'=>$aboutMeV2->id,
-                ]);
-            }
-
-        }
 
         $aboutMeV2 = $this->aboutMeV2Repository->update($request->all(), $id);
 
@@ -201,7 +166,6 @@ class AboutMeV2Controller extends AppBaseController
         foreach ($images_to_delete as $item){
             unlink(trim($item['uri'],'/'));
         }
-
         $this->uploadRepository->model()::where('belongs_to_id',$id)->delete('belongs_to_id',$id);
         $this->aboutMeV2Repository->delete($id);
 

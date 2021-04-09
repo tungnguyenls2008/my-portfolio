@@ -13,7 +13,10 @@
         @foreach($doneProjects as $doneProject)
             <tr>
                 <td>{{ $doneProject->name }}</td>
-            <td>{{ $doneProject->image }}</td>
+            <td>@foreach($uploads->where('belongs_to_id',$doneProject->id) as $key=> $upload)
+
+                    <img src="{{asset($upload->uri)}}" style="width: 50px">
+                @endforeach</td>
             <td>{{ $doneProject->short_desc }}</td>
             <td>{{ $doneProject->long_desc }}</td>
                 <td>

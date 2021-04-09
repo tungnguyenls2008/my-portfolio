@@ -128,8 +128,11 @@
                     @foreach($doneProjectRepository->model()::all() as $key=> $item)
                         <div class="col-md-12">
                             <div class="work-entry animate-box">
+                                <?php
+                                $img_project=$uploadRepository->model()::where('belongs_to_table','done_projects')->where('belongs_to_id',$item->id)->get()->toArray();
+                                ?>
                                 <a href="{{route('work')}}" class="work-img"
-                                   style="background-image: url(images/work-{{$key+1}}.jpg);">
+                                   style="background-image: url({{asset($img_project[0]['uri'])}});">
                                     <div class="display-t">
                                         <div class="work-name">
                                             <h2>{{$item->name}}</h2>
