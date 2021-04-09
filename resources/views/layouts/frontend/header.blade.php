@@ -1,4 +1,4 @@
-<header>
+<header id="myHeader">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

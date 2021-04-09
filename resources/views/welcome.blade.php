@@ -1,5 +1,5 @@
 <?php
-//todo: Image upload and social buttons
+//todo: social buttons, scroll to top button, integrate fb message chatbox, blog modal, project modal
 ?>
 
 @extends('layouts.frontend.frontend')
