@@ -7,6 +7,7 @@
 
 
 @section('content')
+
     <div id="colorlib-page">
 
         <div id="colorlib-about">

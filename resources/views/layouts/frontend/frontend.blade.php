@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/back-to-top.css')}}">
 
 
     <!-- Modernizr JS -->
@@ -49,6 +50,7 @@
     <![endif]-->
 </head>
 <body>
+<a id="back-to-top" ><i  class="fa fa-angle-double-up" aria-hidden="true"></i></a>
 
 @include('layouts.frontend.header')
 @include('layouts.frontend.sidebar')
@@ -56,4 +58,25 @@
 @include('layouts.frontend.footer')
 </body>
 @stack('scripts')
+<script>
+    $(function (){
+        var btn = $('#back-to-top');
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+        });
+
+    })
+
+
+</script>
 </html>
