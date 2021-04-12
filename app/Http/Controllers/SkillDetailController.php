@@ -6,6 +6,7 @@ use App\Http\Requests\CreateSkillDetailRequest;
 use App\Http\Requests\UpdateSkillDetailRequest;
 use App\Repositories\SkillDetailRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\SkillRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -14,10 +15,12 @@ class SkillDetailController extends AppBaseController
 {
     /** @var  SkillDetailRepository */
     private $skillDetailRepository;
+    private $skillRepository;
 
-    public function __construct(SkillDetailRepository $skillDetailRepo)
+    public function __construct(SkillDetailRepository $skillDetailRepo, SkillRepository $skillRepository)
     {
         $this->skillDetailRepository = $skillDetailRepo;
+        $this->skillRepository = $skillRepository;
     }
 
     /**
@@ -38,11 +41,11 @@ class SkillDetailController extends AppBaseController
     /**
      * Show the form for creating a new SkillDetail.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function create()
     {
-        return view('skill_details.create');
+        return view('skill_details.create')->with('skillRepository',$this->skillRepository);
     }
 
     /**

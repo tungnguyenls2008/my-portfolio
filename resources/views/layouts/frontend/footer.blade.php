@@ -5,9 +5,9 @@
                 <div class="col-md-4 col-pb-sm">
                     <div class="row">
                         <div class="col-md-10">
-                            <h2>Let's Talk</h2>
-                            <p>A small river named Duden flows by their place and supplies.</p>
-                            <p><a href="#">noah@info.com</a></p>
+                            <h2>Cùng trò chuyện</h2>
+                            <p>Những người im lặng có một tâm trí ồn ào nhất.</p>
+                            <p><a href="#">tungnguyenls2008@gmail.com</a></p>
                             <p class="colorlib-social-icons">
                                 <a href="#"><i class="icon-facebook4"></i></a>
                                 <a href="#"><i class="icon-twitter3"></i></a>
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-pb-sm">
-                    <h2>Latest Blog</h2>
+                    <h2>Blog mới nhất</h2>
                     <div class="f-entry">
                         <a href="#" class="featured-img" style="background-image: url(images/img-1.jpg);"></a>
                         <div class="desc">
@@ -43,11 +43,11 @@
                 </div>
                 <div class="col-md-4 col-pb-sm">
                     <h2>Newsletter</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia</p>
+                    <p>Bạn có muốn nhận những cập nhật mới nhất về con mèo của tôi không?</p>
                     <div class="subscribe text-center">
                         <div class="form-group">
-                            <input type="text" class="form-control text-center" placeholder="Enter Email address">
-                            <input type="submit" value="Subscribe" class="btn btn-primary btn-custom">
+                            <input type="text" class="form-control text-center" placeholder="Mời bạn nhập email nhận thư">
+                            <input type="submit" value="Đăng ký" class="btn btn-primary btn-custom">
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p>
-                        &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart4" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Dựng bởi <a href="mailto:tungnguyenls2008@gmail.com" target="_blank">T Ù N G - N G U Y Ễ N</a> dựa trên template của ColorLib
                     </p>
                 </div>
             </div>
