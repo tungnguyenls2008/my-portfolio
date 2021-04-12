@@ -39,7 +39,7 @@
                                     </h2>
                                 </div>
                                 <div class="item">
-                                    <h2><span>Tôi</span><span>Là {{$aboutMeV2Repository->model()::where('activated',1)->value('occupation')}}</span></h2>
+                                    <h2><span>Tôi</span><span>là một {{$aboutMeV2Repository->model()::where('activated',1)->value('occupation')}}</span></h2>
                                 </div>
                             </div>
                             <div class="desc">
