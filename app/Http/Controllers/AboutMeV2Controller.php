@@ -119,7 +119,7 @@ class AboutMeV2Controller extends AppBaseController
      * @param int $id
      * @param UpdateAboutMeV2Request $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
     public function update($id, UpdateAboutMeV2Request $request)
     {
@@ -149,9 +149,9 @@ class AboutMeV2Controller extends AppBaseController
      *
      * @param int $id
      *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -164,7 +164,9 @@ class AboutMeV2Controller extends AppBaseController
         }
         $images_to_delete=$this->uploadRepository->model()::where('belongs_to_id',$id)->get();
         foreach ($images_to_delete as $item){
-            unlink(trim($item['uri'],'/'));
+            if (file_exists(trim($item['uri'], '/'))){
+                unlink(trim($item['uri'],'/'));
+            }
         }
         $this->uploadRepository->model()::where('belongs_to_id',$id)->delete('belongs_to_id',$id);
         $this->aboutMeV2Repository->delete($id);

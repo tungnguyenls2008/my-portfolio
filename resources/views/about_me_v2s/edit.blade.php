@@ -18,7 +18,7 @@
                               <strong>Edit About Me V2</strong>
                           </div>
                           <div class="card-body">
-                              {!! Form::model($aboutMeV2, ['route' => ['aboutMeV2s.update', $aboutMeV2->id], 'method' => 'patch']) !!}
+                              {!! Form::model($aboutMeV2, ['route' => ['aboutMeV2s.update', $aboutMeV2->id],'enctype'=>'multipart/form-data', 'method' => 'patch']) !!}
 
                               @include('about_me_v2s.fields')
 
