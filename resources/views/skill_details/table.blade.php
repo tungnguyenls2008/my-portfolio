@@ -1,8 +1,11 @@
+<?php
+?>
+
 <div class="table-responsive-sm">
     <table class="table table-striped" id="skillDetails-table">
         <thead>
             <tr>
-                <th>Skill Id</th>
+                <th>Skillset</th>
         <th>Detail</th>
         <th>Percent Achievement</th>
                 <th colspan="3">Action</th>
@@ -11,7 +14,12 @@
         <tbody>
         @foreach($skillDetails as $skillDetail)
             <tr>
-                <td>{{ $skillDetail->skill_id }}</td>
+                <td>@foreach($skills as $skill)
+                    @if($skill->id==$skillDetail->skill_id)
+                        {{$skill->name}}
+                        @endif
+                    @endforeach
+                </td>
             <td>{{ $skillDetail->detail }}</td>
             <td>{{ $skillDetail->percent_achievement }}</td>
                 <td>

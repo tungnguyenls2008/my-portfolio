@@ -28,14 +28,15 @@ class SkillDetailController extends AppBaseController
      *
      * @param Request $request
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
      */
     public function index(Request $request)
     {
         $skillDetails = $this->skillDetailRepository->all();
+        $skills = $this->skillRepository->all();
 
         return view('skill_details.index')
-            ->with('skillDetails', $skillDetails);
+            ->with('skillDetails', $skillDetails)->with('skills',$skills);
     }
 
     /**
