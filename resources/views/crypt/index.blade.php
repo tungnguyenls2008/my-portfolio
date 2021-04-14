@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Cryptography</li>
+    </ol>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-12">
-                    <h1>Cryptography</h1>
-                </div>
+
                 <div class="col-sm-12">
                     <a class="btn btn-lg from-center"
                        href="{{ route('encrypt_view') }}">

@@ -1,6 +1,6 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
-        <ul class="nav">
+        <ul class="nav" style="width: max-content">
             @include('layouts.menu')
         </ul>
     </nav>
