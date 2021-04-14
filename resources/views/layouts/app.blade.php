@@ -26,7 +26,7 @@
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{{route('home')}}">
         <img class="navbar-brand-full" src="{{asset('backend_assets/image/logo.gif')}}" width="30" height="30"
              alt="InfyOm Logo">My Portfolio
         <img class="navbar-brand-minimized" src="{{asset('backend_assets/image/logo.gif')}}" width="30"

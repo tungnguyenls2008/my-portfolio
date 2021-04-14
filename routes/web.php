@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CryptController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,9 +63,12 @@ Route::post(
 
 Route::resource('aboutMeV2s', App\Http\Controllers\AboutMeV2Controller::class);
 
-
-
-
 Route::resource('uploads', App\Http\Controllers\UploadController::class);
 
 Route::resource('uploadDatatables', App\Http\Controllers\UploadDatatableController::class);
+
+Route::get('crypt.index',[CryptController::class,'index'])->name('crypt_index');
+Route::get('crypt.encrypt',[CryptController::class,'encryptView'])->name('encrypt_view');
+Route::get('crypt.decrypt',[CryptController::class,'decryptView'])->name('decrypt_view');
+Route::post('encrypt',[CryptController::class,'encrypt'])->name('encrypt');
+Route::post('decrypt',[CryptController::class,'decrypt'])->name('decrypt');

@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Crypt;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+const CUSTOM_CHUNK_SIZE = 8192;
 
 class CryptController extends AppBaseController
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('crypt.index');
     }
 
     /**
@@ -113,7 +114,7 @@ class CryptController extends AppBaseController
         $files = $this->doUpload($request, 'input_file','uploads/tobe_decrypted');
         foreach ($files as $file) {
             $file_name=(base_path().'/public/storage/'.$file);
-            $output='storage/decrypted/' . time() . basename($file);
+            $output='storage/decrypted/' . basename($file);
             $this->decryptFile($file_name, $output, $input['decrypt_key']);
             $this->outputFile($output);
         }

@@ -61,3 +61,9 @@
         <span>Upload Datatables</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('crypt*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('crypt_index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Cryptography</span>
+    </a>
+</li>
