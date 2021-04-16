@@ -1,11 +1,11 @@
 <?php
-if (!isset(Auth::user()->name)){
-    $message='you are not supported to be here, leave now.';
-    dd($message);
-    //echo view('errors.unauth')->with('message',$message);
-}
+//if (!isset(Auth::user()->name)) {
+//    $message = 'you are not supported to be here, leave now.';
+//    dd($message);
+//    //echo view('errors.unauth')->with('message',$message);
+//}
 ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -13,19 +13,22 @@ if (!isset(Auth::user()->name)){
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 4.1.1 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/css/coreui.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/coreui-icons-free@1.0.1-alpha.1/coreui-icons-free.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@icon/coreui-icons-free@1.0.1-alpha.1/coreui-icons-free.css">
 
-     <!-- PRO version // if you have PRO version licence than remove comment and use it. -->
-    {{--<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0/css/brand.min.css">--}}
-    {{--<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0/css/flag.min.css">--}}
-     <!-- PRO version -->
+    <!-- PRO version // if you have PRO version licence than remove comment and use it. -->
+{{--<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0/css/brand.min.css">--}}
+{{--<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@1.0.0/css/flag.min.css">--}}
+<!-- PRO version -->
 
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -43,9 +46,9 @@ if (!isset(Auth::user()->name)){
         <span class="navbar-toggler-icon"></span>
     </button>
 
-        <a  style="margin-right: 10px" href="{{ route('welcome') }}">
-            <span>Back to Frontend</span>
-        </a>
+    <a style="margin-right: 10px" href="{{ route('welcome') }}">
+        <span>Back to Frontend</span>
+    </a>
 
 
     <ul class="nav navbar-nav ml-auto">
@@ -58,7 +61,11 @@ if (!isset(Auth::user()->name)){
         <li class="nav-item dropdown">
             <a class="nav-link" style="margin-right: 10px" data-toggle="dropdown" href="#" role="button"
                aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->name }}
+                @if(isset(Auth::user()->name))
+
+                    {{ Auth::user()->name }}
+                @else Un-authorized access
+                @endif
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
@@ -91,15 +98,35 @@ if (!isset(Auth::user()->name)){
 </header>
 
 <div class="app-body">
+    @if(isset(Auth::user()->name))
     @include('layouts.sidebar')
+    @endif
     <main class="main">
-        @yield('content')
+        @if(isset(Auth::user()->name))
+            @yield('content')
+        @else
+            <br><br>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-align-justify"></i>
+                        Unauthorized access!
+                    </div>
+                    <div class="card-body">
+                        <div class="pull-left mr-3">
+                            <h3>You are not supported to be here, leave now.</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </main>
 </div>
 <footer class="app-footer">
     <div>
         <a href="https://infyom.com">InfyOm </a>
-        <span>&copy; 2019 InfyOmLabs.</span>
+        <span>&copy; 2021 InfyOmLabs.</span>
     </div>
     <div class="ml-auto">
         <span>Powered by</span>
@@ -112,7 +139,8 @@ if (!isset(Auth::user()->name)){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@2.1.16/dist/js/coreui.min.js"></script>
 
 @stack('scripts')
