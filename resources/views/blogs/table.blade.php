@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th>Title</th>
-            <th>Description</th>
+            <th>Content</th>
             <th>Image</th>
             <th colspan="3">Action</th>
         </tr>
@@ -12,7 +12,7 @@
         @foreach($blogs as $blog)
             <tr>
                 <td>{{ $blog->title }}</td>
-                <td>{{ $blog->description }}</td>
+                <td>{{ $blog->content }}</td>
                 <td>
                     @foreach($uploads->where('belongs_to_id',$blog->id) as $key=> $upload)
 

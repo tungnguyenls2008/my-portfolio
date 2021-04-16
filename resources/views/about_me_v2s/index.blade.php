@@ -13,12 +13,12 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              AboutMeV2s
-                             <a class="pull-right" href="{{ route('aboutMeV2s.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a class="pull-right btn btn-outline-primary" href="{{ route('aboutMeV2s.create') }}"><i class="fa fa-plus-square fa-lg"></i> Add new AboutMe</a>
                          </div>
                          <div class="card-body">
                              @include('about_me_v2s.table')
                               <div class="pull-right mr-3">
-                                     
+
                               </div>
                          </div>
                      </div>

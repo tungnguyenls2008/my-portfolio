@@ -13,12 +13,12 @@
                          <div class="card-header">
                              <i class="fa fa-align-justify"></i>
                              Blogs
-                             <a class="pull-right" href="{{ route('blogs.create') }}"><i class="fa fa-plus-square fa-lg"></i></a>
+                             <a class="pull-right btn btn-outline-primary" href="{{ route('blogs.create') }}"><i class="fa fa-plus-square fa-lg"></i> Add new Blog Entry</a>
                          </div>
                          <div class="card-body">
                              @include('blogs.table')
                               <div class="pull-right mr-3">
-                                     
+
                               </div>
                          </div>
                      </div>

@@ -18,7 +18,7 @@ class BlogRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'title',
-        'description'
+        '$content'
     ];
 
     /**

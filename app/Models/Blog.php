@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @version April 8, 2021, 4:53 am UTC
  *
  * @property string $title
- * @property string $description
+ * @property string $content
  */
 class Blog extends Model
 {
@@ -21,7 +21,7 @@ class Blog extends Model
     use HasFactory;
 
     public $table = 'blogs';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -32,7 +32,7 @@ class Blog extends Model
 
     public $fillable = [
         'title',
-        'description'
+        'content'
     ];
 
     /**
@@ -43,7 +43,7 @@ class Blog extends Model
     protected $casts = [
         'id' => 'integer',
         'title' => 'string',
-        'description' => 'string'
+        'content' => 'string'
     ];
 
     /**
@@ -53,11 +53,11 @@ class Blog extends Model
      */
     public static $rules = [
         'title' => 'required|string',
-        'description' => 'required|string',
+        'content' => 'required|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
 
-    
+
 }

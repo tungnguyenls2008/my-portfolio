@@ -152,8 +152,14 @@ class BlogController extends AppBaseController
 
             return redirect(route('blogs.index'));
         }
-
+        $images_to_delete=$this->uploadRepository->model()::where('belongs_to_id',$id)->get();
+        foreach ($images_to_delete as $item){
+            if (file_exists(trim($item['uri'], '/'))){
+                unlink(trim($item['uri'],'/'));
+            }
+        }
         $this->blogRepository->delete($id);
+        $this->uploadRepository->model()::where('belongs_to_id',$id)->delete('belongs_to_id',$id);
 
         Flash::success('Blog deleted successfully.');
 

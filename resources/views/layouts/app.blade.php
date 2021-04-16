@@ -115,7 +115,6 @@
                     <div class="card-body">
                         <div class="pull-left mr-3">
                             <h3>You are not supported to be here, leave now.</h3>
-
                         </div>
                     </div>
                 </div>
