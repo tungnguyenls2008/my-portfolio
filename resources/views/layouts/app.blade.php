@@ -1,3 +1,10 @@
+<?php
+if (!isset(Auth::user()->name)){
+    $message='you are not supported to be here, leave now.';
+    dd($message);
+    //echo view('errors.unauth')->with('message',$message);
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>

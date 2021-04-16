@@ -58,6 +58,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    @foreach($storyRepository->model()::all()->toArray() as $item)
+                    <div class="col-md-4 animate-box">
+                        <p>{{$item['content']}}</p>
+                    </div>
+                    @endforeach
+
+                </div>
+
             </div>
         </div>
         <div id="colorlib-services">

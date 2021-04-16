@@ -7,7 +7,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-
+<p>Using top-of-the-line technic used by military-graded organizations to encrypt and decrypt files in a way that no living things on this planet would be able to crack, at least for now.</p>
                 <div class="col-sm-12">
                     <a class="btn btn-lg from-center"
                        href="{{ route('encrypt_view') }}">
